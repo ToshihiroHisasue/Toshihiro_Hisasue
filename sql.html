@@ -43,6 +43,31 @@
                 text-align: center;
             }
         }
+
+        /* 問題コンテンツのスタイル */
+        .problem {
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .problem h2 {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .problem pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .problem p {
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
@@ -55,5 +80,15 @@
     </header>
     <h1>SQLの練習問題</h1>
     <p>ここではSQLの練習問題を紹介します。</p>
+
+    <!-- 練習問題 1 -->
+    <div class="problem">
+        <h2>練習問題 1: テーブルからすべてのデータを取得する</h2>
+        <p>コード:</p>
+        <pre>SELECT ___ FROM employees;</pre>
+        <p>操作内容: 「employeesテーブルからすべての列を取得する」</p>
+        <p><strong>解答欄:</strong> *</p>
+    </div>
+
 </body>
 </html>
