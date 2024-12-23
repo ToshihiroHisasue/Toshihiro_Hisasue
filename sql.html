@@ -58,15 +58,33 @@
             color: #333;
         }
 
-        .problem pre {
-            background-color: #eee;
-            padding: 10px;
-            border-radius: 4px;
-            font-family: monospace;
-        }
-
         .problem p {
             margin: 10px 0;
+        }
+
+        .problem pre {
+            background-color: #f9f9f9; /* 背景を問題全体と同じ色にする */
+            padding: 10px;
+            font-family: Arial, sans-serif; /* 通常のローマ字フォント */
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        /* 解答を隠すボタン */
+        .answer {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #eee;
+            border-radius: 4px;
+        }
+
+        .show-answer {
+            cursor: pointer;
+            color: #007bff;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -84,11 +102,26 @@
     <!-- 練習問題 1 -->
     <div class="problem">
         <h2>練習問題 1: テーブルからすべてのデータを取得する</h2>
-        <p>コード:</p>
-        <pre>SELECT ___ FROM employees;</pre>
         <p>操作内容: 「employeesテーブルからすべての列を取得する」</p>
-        <p><strong>解答欄:</strong> *</p>
+        <pre>SELECT ___ FROM employees;</pre>
+        <p>
+            <span class="show-answer" onclick="toggleAnswer(this)">解答を表示</span>
+        </p>
+        <div class="answer">解答: *</div>
     </div>
 
+    <script>
+        // 解答を表示・非表示にする関数
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling;
+            if (answer.style.display === "none" || answer.style.display === "") {
+                answer.style.display = "block";
+                element.textContent = "解答を隠す";
+            } else {
+                answer.style.display = "none";
+                element.textContent = "解答を表示";
+            }
+        }
+    </script>
 </body>
 </html>
