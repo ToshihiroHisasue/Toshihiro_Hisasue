@@ -50,14 +50,7 @@
             padding: 20px;
             border: 2px solid #ccc;
             border-radius: 8px;
-            background-color: #f9f9f9;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .problem-content {
-            width: 70%;
+            background-color: #f9f9f9; /* 背景色を薄い灰色 */
         }
 
         .problem h2 {
@@ -66,7 +59,7 @@
         }
 
         .problem pre {
-            background-color: #f4f4f4; /* 背景色を薄い灰色に設定 */
+            background-color: #f4f4f4; /* コード部分の背景色を灰色っぽい色に設定 */
             padding: 10px;
             font-family: Arial, sans-serif; /* 通常のローマ字フォント */
             font-size: 14px;
@@ -76,9 +69,9 @@
         }
 
         .problem-answer {
-            width: auto;
-            padding: 5px 10px; 
-            margin-left: 20px; /* コード部分との間にスペースを追加 */
+            margin-top: 15px; /* コード部分との間にスペースを追加 */
+            padding: 10px;
+            border: 1px solid #ddd;
             background-color: #f0f8ff; /* 解答部分の背景色を淡い青色に設定 */
             border-radius: 4px;
         }
@@ -97,13 +90,10 @@
 
     <!-- 練習問題 1 -->
     <div class="problem">
-        <div class="problem-content">
-            <h2>練習問題 1: テーブルからすべてのデータを取得する</h2>
-            <p>操作内容: 「employeesテーブルからすべての列を取得する」</p>
-            <pre>SELECT ___ FROM employees;</pre>
-        </div>
+        <p>employeesテーブルからすべての列を取得する</p>
+        <pre>SELECT ___ FROM employees;</pre>
         <div class="problem-answer">
-            <strong>解答:</strong> <br>*
+            <strong>解答:</strong> *
         </div>
     </div>
 
