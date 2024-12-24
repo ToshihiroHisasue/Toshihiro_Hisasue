@@ -150,7 +150,7 @@
 
 <div class="interactive-block">
     <!-- インタラクティブな体験 -->
-    <h2 style="text-align: center; color: #0f0;">インタラクティブな体験</h2>
+    <h2 style="text-align: center; color: #0f0;">PUSH</h2>
 
     <!-- コントロールボタン -->
     <div class="controls">
@@ -288,6 +288,119 @@
                 ${rows}
             </table>
         `;
+    }
+</script>
+
+<style>
+    /* インタラクティブな体験の囲い */
+    .interactive-block {
+        background-color: #111; /* ダークグレー背景 */
+        border: 2px solid #0f0; /* 緑色のボーダー */
+        padding: 20px;
+        margin: 20px auto;
+        border-radius: 8px; /* 角丸 */
+        box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2); /* 緑色の影 */
+        width: 80%; /* コンテンツ全体の幅 */
+        text-align: center; /* 全体を中央揃え */
+    }
+
+    /* コントロールボタンのスタイル */
+    .controls button {
+        background-color: #222; /* ダークグレー背景 */
+        color: #0f0; /* 緑文字 */
+        border: 2px solid #0f0; /* 緑色のボーダー */
+        padding: 10px 20px;
+        font-family: "Courier New", monospace;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 5px;
+        transition: background-color 0.3s, transform 0.3s; /* アニメーション */
+    }
+
+    .controls button:hover {
+        background-color: #0f0; /* ホバー時に緑色 */
+        color: #000; /* ホバー時に黒文字 */
+        transform: scale(1.1); /* ホバー時に拡大 */
+    }
+
+    .controls button:active {
+        background-color: #ff0; /* クリック時に黄色 */
+        color: #000;
+    }
+
+    /* テーブルのスタイル */
+    table {
+        width: 60%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background-color: #222; /* ダークグレー背景 */
+        color: #0f0; /* 緑文字 */
+        font-size: 16px;
+        border: 1px solid #444; /* 外枠の色 */
+    }
+
+    table th, table td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #444; /* セル間の線 */
+    }
+
+    table th {
+        background-color: #333; /* 見出しセルの背景色 */
+    }
+</style>
+
+<div class="code-block">
+    <button onclick="toggleCode()" style="background-color: #333; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+        全文を表示
+    </button>
+    <pre id="full-sql-code" style="background-color: #f9f9f9; color: black; padding: 20px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 14px; margin: 20px auto; width: 80%; text-align: left; display: none;">
+- 1. 新しいテーブルを作成
+CREATE TABLE employees (
+    id INT,
+    name VARCHAR(50),
+    age INT,
+    salary INT,
+    department VARCHAR(50)
+);
+
+-- 2. 行を挿入
+INSERT INTO employees (id, name, age, salary, department) VALUES 
+(1, 'Alice', 30, 5000, 'Sales'),
+(2, 'Bob', 40, 7000, 'HR'),
+(3, 'Charlie', 25, 6000, 'IT');
+
+-- 3. 部署「HR」の給与を500増加
+UPDATE employees SET salary = salary + 500 WHERE department = 'HR';
+
+-- 4. 年齢が30以上の行を取得
+SELECT * FROM employees WHERE age >= 30;
+
+-- 5. 部署ごとの社員数を取得
+SELECT department, COUNT(*) FROM employees GROUP BY department;
+
+-- 6. 年齢が30未満の行を削除
+DELETE FROM employees WHERE age < 30;
+
+-- 7. テーブルを削除
+DROP TABLE employees;
+    </pre>
+</div>
+
+
+<script>
+    // SQLコードの表示/非表示を切り替える関数
+    function toggleCode() {
+        const codeBlock = document.getElementById('full-sql-code');
+        const button = document.querySelector('.code-block button');
+
+        if (codeBlock.style.display === 'none') {
+            codeBlock.style.display = 'block';
+            button.textContent = '全文を隠す';
+        } else {
+            codeBlock.style.display = 'none';
+            button.textContent = '全文を表示';
+        }
     }
 </script>
 
