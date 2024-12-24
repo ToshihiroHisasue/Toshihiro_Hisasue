@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQLの練習問題 第二部</title>
+    <style>
+        /* ページ全体の背景 */
+        body {
+            background-color: #f7f7f7; /* 背景のベースカラー */
+            background-image: radial-gradient(circle, #e0e0e0 1px, transparent 1px); /* 灰色の玉模様 */
+            background-size: 20px 20px; /* 玉の間隔を調整 */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* 問題コンテンツのスタイル */
+        .problem {
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9; /* 背景色を薄い灰色 */
+        }
+
+        .problem h2 {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .problem pre {
+            background-color: #f4f4f4; /* コード部分の背景色を灰色っぽい色に設定 */
+            padding: 10px;
+            font-family: Arial, sans-serif; /* 通常のローマ字フォント */
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .problem p {
+            font-size: 18px; /* フォントサイズを大きく */
+            font-weight: bold; /* 太字に設定 */
+        }
+
+        .problem-answer {
+            margin-top: 15px; /* コード部分との間にスペースを追加 */
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f0f8ff; /* 解答部分の背景色を淡い青色に設定 */
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>SQLの練習問題 第二部</h1>
+    <p>ここでは発展的なSQLの練習問題を紹介します。</p>
+
+    <!-- 問題 1 -->
+    <div class="problem">
+        <p>Sales 部門の従業員の ID と名前を取得する</p>
+        <pre>SELECT ___, ___ FROM employees WHERE department = 'Sales';</pre>
+        <div class="problem-answer">
+            <strong>解答:</strong> id, name
+        </div>
+    </div>
+
+    <!-- 問題 2 -->
+    <div class="problem">
+        <p>25歳から35歳の従業員のすべての情報を取得する</p>
+        <pre>SELECT ___ FROM employees WHERE ___ BETWEEN 25 AND 35;</pre>
+        <div class="problem-answer">
+            <strong>解答:</strong> *, age
+        </div>
+    </div>
+
+    <!-- 問題 3 -->
+    <div class="problem">
+        <p>HR 部門の従業員の給与を 500 増やす</p>
+        <pre>UPDATE employees SET salary = ___ WHERE department = 'HR';</pre>
+        <div class="problem-answer">
+            <strong>解答:</strong> salary + 500
+        </div>
+    </div>
+
+    <!-- 問題 4 -->
+    <div class="problem">
+        <p>従業員の部署情報を NULL に設定する (ID が 3 のみ)</p>
+        <pre>UPDATE employees SET ___ = ___ WHERE id = 3;</pre>
+        <div class="problem-answer">
+            <strong>解答:</strong> department, NULL
+        </div>
+    </div>
+
+    <!-- 問題 5 -->
+    <div class="problem">
+        <p>部署ごとに従業員数をカウントする</p>
+        <pre>SELECT department, ___(*) FROM employees GROUP BY ___;</pre>
+        <div class="problem-answer">
+            <strong>解答:</strong> COUNT, department
+        </div>
+    </div>
+
+    <!-- 問題 6 -->
+    <div class="problem">
+        <p>平均給与が 6000 を超える部署を取得する</p>
+        <pre>SELECT department, AVG(salary) FROM employees GROUP BY department ___ AVG(salary) > 6000;</pre>
+        <div class="problem-answer">
+            <strong>解答:</strong> HAVING
+        </div>
+    </div>
+
+    <!-- 問題 7 -->
+    <div class="problem">
+        <p>従業員と部署情報を結合して取得する</p>
+        <pre>SELECT e.name, d.department_name FROM employees e ___ departments d ON e.department_id = d.id;</pre>
+        <div class="problem-answer">
+            <strong>解答:</strong> INNER JOIN
+        </div>
+    </div>
+
+    <!-- 問題 8 -->
+    <div class="problem">
+        <p>給与が 7000 を超える従業員の一時的なテーブルを作成する</p>
+        <pre>CREATE ___ TABLE high_salary_employees AS SELECT * FROM employees WHERE salary > 7000;</pre>
+        <div class="problem-answer">
+            <strong>解答:</strong> TEMPORARY
+        </div>
+    </div>
+
+    <!-- 問題 9 -->
+    <div class="problem">
+        <p>hire_date カラムを従業員テーブルに追加する</p>
+        <pre>ALTER TABLE employees ADD COLUMN hire_date ___;</pre>
+        <div class="problem-answer">
+            <strong>解答:</strong> DATE
+        </div>
+    </div>
+
+    <!-- 問題 10 -->
+    <div class="problem">
+        <p>25歳未満の従業員を削除する</p>
+        <pre>DELETE FROM employees WHERE ___;</pre>
+        <div class="problem-answer">
+            <strong>解答:</strong> age < 25
+        </div>
+    </div>
+
+    <!-- インタラクティブな体験のセクションは、first-part.htmlと同様のスタイルで最後に配置 -->
+</body>
+</html>
