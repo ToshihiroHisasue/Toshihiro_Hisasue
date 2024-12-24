@@ -157,7 +157,7 @@
         <button onclick="step1()">1. CREATE TABLE</button>
         <button onclick="step2()">2. INSERT INTO</button>
         <button onclick="step3()">3. UPDATE SALARY</button>
-        <button onclick="step4()">4. FILTER BY AGE</button>
+        <button onclick="step4()">4. SELECT WHERE AGE >= 30</button>
         <button onclick="step5()">5. GROUP BY DEPARTMENT</button>
         <button onclick="step6()">6. DELETE ROWS</button>
         <button onclick="step7()">7. DROP TABLE</button>
@@ -212,22 +212,24 @@
         updateTable();
     }
 
-    // ステップ3: 給与を更新
+    // ステップ3: 部署「HR」の給与を更新
     function step3() {
         tableData = tableData.map(row => {
-            if (row.department === 'HR') row.salary += 500;
+            if (row.department === 'HR') {
+                row.salary += 500;
+            }
             return row;
         });
         updateTable();
     }
 
-    // ステップ4: 年齢フィルター
+    // ステップ4: 年齢が30以上の行を取得
     function step4() {
         const filteredData = tableData.filter(row => row.age >= 30);
         updateTable(false, filteredData);
     }
 
-    // ステップ5: 部署ごとのデータ表示
+    // ステップ5: 部署ごとの社員数を取得
     function step5() {
         const departmentCounts = tableData.reduce((acc, row) => {
             acc[row.department] = (acc[row.department] || 0) + 1;
@@ -252,7 +254,7 @@
         `;
     }
 
-    // ステップ6: 条件付き行削除
+    // ステップ6: 年齢が30未満の行を削除
     function step6() {
         tableData = tableData.filter(row => row.age >= 30);
         updateTable();
@@ -289,57 +291,6 @@
     }
 </script>
 
-<div class="code-block">
-    <button onclick="toggleCode()" style="background-color: #333; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
-        全文を表示
-    </button>
-    <pre id="full-sql-code" style="background-color: #f9f9f9; color: black; padding: 20px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 14px; margin: 20px auto; width: 80%; text-align: left; display: none;">
--- 1. 新しいテーブルを作成
-CREATE TABLE employees (
-    id INT,
-    name VARCHAR(50),
-    age INT,
-    salary INT,
-    department VARCHAR(50)
-);
-
--- 2. 行を挿入
-INSERT INTO employees (id, name, age, salary, department) VALUES 
-(1, 'Alice', 30, 5000, 'Sales'),
-(2, 'Bob', 40, 7000, 'HR'),
-(3, 'Charlie', 25, 6000, 'IT');
-
--- 3. 部署「HR」の給与を500増加
-UPDATE employees SET salary = salary + 500 WHERE department = 'HR';
-
--- 4. 年齢が30以上の行を取得
-SELECT * FROM employees WHERE age >= 30;
-
--- 5. 部署ごとの社員数を取得
-SELECT department, COUNT(*) FROM employees GROUP BY department;
-
--- 6. 年齢が30未満の行を削除
-DELETE FROM employees WHERE age < 30;
-
--- 7. テーブルを削除
-DROP TABLE employees;
-    </pre>
-</div>
-
-<script>
-    function toggleCode() {
-        const codeBlock = document.getElementById('full-sql-code');
-        const button = document.querySelector('.code-block button');
-
-        if (codeBlock.style.display === 'none') {
-            codeBlock.style.display = 'block';
-            button.textContent = '全文を隠す';
-        } else {
-            codeBlock.style.display = 'none';
-            button.textContent = '全文を表示';
-        }
-    }
-</script>
 
 </body>
 </html>
