@@ -184,9 +184,10 @@
 <div class="interactive-block">
   
     
+<div class="interactive-block">
     <!-- インタラクティブな体験 -->
     <h2 style="text-align: center; color: #0f0;">インタラクティブな体験</h2>
-    <p style="text-align: center;">以下のコマンドボタンを押して、テーブルの状態を確認してください。</p>
+    <p style="text-align: center;">以下のコマンドボタンを押して、テーブルの状態を確認し、操作されたSQLコードを確認しましょう。</p>
 
     <!-- コントロールボタン -->
     <div class="controls">
@@ -214,6 +215,14 @@
             </tr>
         </table>
     </div>
+
+    <!-- コード表示エリア -->
+    <div id="code-container">
+        <h2 style="text-align: center; color: #0f0;">SQLコード</h2>
+        <pre id="sql-code" style="background-color: #111; color: #0f0; padding: 10px; border: 1px solid #0f0; border-radius: 8px;">
+            -- ここにSQLコードが表示されます
+        </pre>
+    </div>
 </div>
 
 <script>
@@ -222,6 +231,13 @@
 
     // ステップ1: テーブル作成
     function step1() {
+        const sql = `CREATE TABLE S (
+    id INT,
+    name VARCHAR(50),
+    age INT,
+    salary INT
+);`;
+        showSQLCode(sql);
         document.getElementById('table-container').innerHTML = `
             <h2>ステップ1: テーブル作成</h2>
             <table>
@@ -240,6 +256,11 @@
 
     // ステップ2: 行の挿入
     function step2() {
+        const sql = `INSERT INTO S (id, name, age, salary) VALUES 
+(1, 'Alice', 20, 5000),
+(2, 'Bob', 35, 7000),
+(3, 'Charlie', 25, 6000);`;
+        showSQLCode(sql);
         tableData = [
             { id: 1, name: 'Alice', age: 20, salary: 5000 },
             { id: 2, name: 'Bob', age: 35, salary: 7000 },
@@ -250,33 +271,48 @@
 
     // ステップ3: 列名変更
     function step3() {
+        const sql = `ALTER TABLE S RENAME COLUMN name TO full_name;`;
+        showSQLCode(sql);
         updateTable('ステップ3: 列名変更', true);
     }
 
     // ステップ4: 条件付き取得
     function step4() {
+        const sql = `SELECT * FROM S WHERE age >= 30;`;
+        showSQLCode(sql);
         const filteredData = tableData.filter(row => row.age >= 30);
         updateTable('ステップ4: 条件付き取得', false, filteredData);
     }
 
     // ステップ5: 並び替え
     function step5() {
+        const sql = `SELECT * FROM S ORDER BY salary ASC;`;
+        showSQLCode(sql);
         const sortedData = [...tableData].sort((a, b) => a.salary - b.salary);
         updateTable('ステップ5: 並び替え', false, sortedData);
     }
 
     // ステップ6: 削除
     function step6() {
+        const sql = `DELETE FROM S WHERE age < 20;`;
+        showSQLCode(sql);
         tableData = tableData.filter(row => row.age >= 20);
         updateTable('ステップ6: 削除');
     }
 
     // ステップ7: テーブル削除
     function step7() {
+        const sql = `DROP TABLE S;`;
+        showSQLCode(sql);
         document.getElementById('table-container').innerHTML = `
             <h2>ステップ7: テーブル削除</h2>
             <p>テーブルが削除されました</p>
         `;
+    }
+
+    // SQLコードを表示する関数
+    function showSQLCode(sql) {
+        document.getElementById('sql-code').textContent = sql;
     }
 
     // テーブルを更新する汎用関数
@@ -306,64 +342,6 @@
     }
 </script>
 
-<style>
-    /* インタラクティブな体験の囲い */
-    .interactive-block {
-        background-color: #111; /* ダークグレー背景 */
-        border: 2px solid #0f0; /* 緑色のボーダー */
-        padding: 20px;
-        margin: 20px auto;
-        border-radius: 8px; /* 角丸 */
-        box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2); /* 緑色の影 */
-        width: 80%; /* コンテンツ全体の幅 */
-        text-align: center; /* 全体を中央揃え */
-    }
-
-    /* コントロールボタンのスタイル */
-    .controls button {
-        background-color: #222; /* ダークグレー背景 */
-        color: #0f0; /* 緑文字 */
-        border: 2px solid #0f0; /* 緑色のボーダー */
-        padding: 10px 20px;
-        font-family: "Courier New", monospace;
-        font-size: 16px;
-        cursor: pointer;
-        margin: 5px;
-        transition: background-color 0.3s, transform 0.3s; /* アニメーション */
-    }
-
-    .controls button:hover {
-        background-color: #0f0; /* ホバー時に緑色 */
-        color: #000; /* ホバー時に黒文字 */
-        transform: scale(1.1); /* ホバー時に拡大 */
-    }
-
-    .controls button:active {
-        background-color: #ff0; /* クリック時に黄色 */
-        color: #000;
-    }
-
-    /* テーブルのスタイル */
-    table {
-        width: 60%;
-        margin: 20px auto;
-        border-collapse: collapse;
-        background-color: #222; /* ダークグレー背景 */
-        color: #0f0; /* 緑文字 */
-        font-size: 16px;
-        border: 1px solid #444; /* 外枠の色 */
-    }
-
-    table th, table td {
-        padding: 10px;
-        text-align: center;
-        border: 1px solid #444; /* セル間の線 */
-    }
-
-    table th {
-        background-color: #333; /* 見出しセルの背景色 */
-    }
-</style>
 
 </body>
 </html>
