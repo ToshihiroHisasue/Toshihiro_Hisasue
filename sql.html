@@ -185,8 +185,7 @@
 <div class="interactive-block">
     <!-- インタラクティブな体験 -->
     <h2 style="text-align: center; color: #0f0;">インタラクティブな体験</h2>
-    <p style="text-align: center;">以下のコマンドボタンを押して、テーブルの状態を確認してください。</p>
-
+   
     <!-- コントロールボタン -->
     <div class="controls">
         <button onclick="step1()">1. CREATE TABLE</button>
@@ -198,21 +197,19 @@
         <button onclick="step7()">7. DROP TABLE</button>
     </div>
 
-    <!-- テーブル表示エリア -->
-    <div id="table-container">
-        <h2 style="text-align: center; color: #0f0;">最初の状態</h2>
-        <table>
-            <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>age</th>
-                <th>salary</th>
-            </tr>
-            <tr>
-                <td colspan="4">空のテーブル</td>
-            </tr>
-        </table>
-    </div>
+<!-- テーブル表示エリア -->
+<div id="table-container">
+    <table>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>age</th>
+            <th>salary</th>
+        </tr>
+        <tr>
+            <td colspan="4">空のテーブル</td>
+        </tr>
+    </table>
 </div>
 
 <script>
@@ -222,7 +219,6 @@
     // ステップ1: テーブル作成
     function step1() {
         document.getElementById('table-container').innerHTML = `
-            <h2>ステップ1: テーブル作成</h2>
             <table>
                 <tr>
                     <th>id</th>
@@ -244,42 +240,41 @@
             { id: 2, name: 'Bob', age: 35, salary: 7000 },
             { id: 3, name: 'Charlie', age: 25, salary: 6000 }
         ];
-        updateTable('ステップ2: 行の挿入');
+        updateTable();
     }
 
     // ステップ3: 列名変更
     function step3() {
-        updateTable('ステップ3: 列名変更', true);
+        updateTable(true);
     }
 
     // ステップ4: 条件付き取得
     function step4() {
         const filteredData = tableData.filter(row => row.age >= 30);
-        updateTable('ステップ4: 条件付き取得', false, filteredData);
+        updateTable(false, filteredData);
     }
 
     // ステップ5: 並び替え
     function step5() {
         const sortedData = [...tableData].sort((a, b) => a.salary - b.salary);
-        updateTable('ステップ5: 並び替え', false, sortedData);
+        updateTable(false, sortedData);
     }
 
     // ステップ6: 削除
     function step6() {
         tableData = tableData.filter(row => row.age >= 20);
-        updateTable('ステップ6: 削除');
+        updateTable();
     }
 
     // ステップ7: テーブル削除
     function step7() {
         document.getElementById('table-container').innerHTML = `
-            <h2>ステップ7: テーブル削除</h2>
             <p>テーブルが削除されました</p>
         `;
     }
 
     // テーブルを更新する汎用関数
-    function updateTable(title, rename = false, data = tableData) {
+    function updateTable(rename = false, data = tableData) {
         let headers = rename
             ? `<tr><th>id</th><th>full_name</th><th>age</th><th>salary</th></tr>`
             : `<tr><th>id</th><th>name</th><th>age</th><th>salary</th></tr>`;
@@ -296,7 +291,6 @@
             .join('');
 
         document.getElementById('table-container').innerHTML = `
-            <h2>${title}</h2>
             <table>
                 ${headers}
                 ${rows}
@@ -304,6 +298,7 @@
         `;
     }
 </script>
+
 
 <style>
     /* インタラクティブな体験の囲い */
