@@ -62,21 +62,34 @@
     </nav>
 
     <div class="controls">
-        <button onclick="showContent('first')">第一部</button>
-        <button onclick="showContent('second')">第二部</button>
+        <!-- 動的にボタンを生成 -->
+        <script>
+            for (let i = 1; i <= 10; i++) {
+                document.write(`<button onclick="showContent('part${i}')">第${i}部</button>`);
+            }
+        </script>
     </div>
 
-    <!-- 第一部コンテンツ -->
-    <div id="first" class="content">
+    <!-- コンテンツ -->
+    <div id="part1" class="content">
         <h1>第一部: SQL 練習問題</h1>
         <iframe src="first-part.html" width="100%" height="800" style="border: none;"></iframe>
     </div>
-
-    <!-- 第二部コンテンツ -->
-    <div id="second" class="content">
+    <div id="part2" class="content">
         <h1>第二部: SQL 練習問題</h1>
         <iframe src="second-part.html" width="100%" height="800" style="border: none;"></iframe>
     </div>
+    <!-- 動的に他の部のコンテンツを生成 -->
+    <script>
+        for (let i = 3; i <= 10; i++) {
+            document.write(`
+                <div id="part${i}" class="content">
+                    <h1>第${i}部: SQL 練習問題</h1>
+                    <iframe src="part${i}.html" width="100%" height="800" style="border: none;"></iframe>
+                </div>
+            `);
+        }
+    </script>
 
     <script>
         // ページ切り替え
@@ -92,8 +105,9 @@
 
         // 初期表示を第一部に設定
         document.addEventListener('DOMContentLoaded', () => {
-            showContent('first');
+            showContent('part1');
         });
     </script>
 </body>
 </html>
+
