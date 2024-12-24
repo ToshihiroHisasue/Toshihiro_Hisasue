@@ -44,13 +44,29 @@
             }
         }
 
-        /* プロフィールセクションのスタイル */
-        .profile {
+        /* プロフィールセクション全体 */
+        .profile-section {
             text-align: center;
-            margin: 20px auto;
+            margin: 30px auto;
         }
 
-        .profile img {
+        .profile-section h2 {
+            font-size: 24px;
+            color: #c00; /* 赤色 */
+            margin-bottom: 20px;
+        }
+
+        /* メッセージと写真のレイアウト */
+        .profile-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px; /* 写真とメッセージの間隔 */
+            flex-wrap: wrap; /* スマホ対応で縦並びになる */
+        }
+
+        /* プロフィール画像 */
+        .profile-container img {
             border-radius: 50%; /* 丸い形 */
             width: 150px;
             height: 150px;
@@ -58,16 +74,12 @@
             border: 3px solid #c00; /* 赤色の枠線 */
         }
 
-        .profile p {
+        /* プロフィールメッセージ */
+        .profile-message {
             font-size: 18px;
+            color: #333; /* 落ち着いたグレー */
             font-family: Arial, sans-serif;
-            margin-top: 10px;
-            color: #333; /* テキストの色 */
-        }
-
-        .profile h1 {
-            font-size: 24px;
-            color: #c00; /* 赤色 */
+            max-width: 400px; /* メッセージの最大幅を制限 */
         }
     </style>
 </head>
@@ -80,14 +92,18 @@
         </nav>
     </header>
 
-    <div class="profile">
-        <!-- プロフィール画像 -->
-        <img src="picwish_8815058621_image1.jpg" alt="久末敏博の写真">
-        <!-- プロフィールの説明 -->
-        <h1>久末敏博</h1>
-        <p>久末敏博です。このサイトは一人の人間として大成するため諸々の準備で利用してます。</p>
+    <!-- プロフィールセクション -->
+    <div class="profile-section">
+        <h2>管理者メッセージ</h2>
+        <div class="profile-container">
+            <!-- プロフィール画像 -->
+            <img src="picwish_8815058621_image1.jpg" alt="久末敏博の写真">
+            <!-- プロフィールメッセージ -->
+            <div class="profile-message">
+                久末敏博です。このサイトは一人の人間として大成するため、諸々の準備で利用しています。
+            </div>
+        </div>
     </div>
 </body>
 </html>
-
 
