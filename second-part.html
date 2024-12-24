@@ -148,6 +148,198 @@
         </div>
     </div>
 
-    <!-- インタラクティブな体験のセクションは、first-part.htmlと同様のスタイルで最後に配置 -->
+<div class="interactive-block">
+    <!-- インタラクティブな体験 -->
+    <h2 style="text-align: center; color: #0f0;">インタラクティブな体験</h2>
+
+    <!-- コントロールボタン -->
+    <div class="controls">
+        <button onclick="step1()">1. CREATE TABLE</button>
+        <button onclick="step2()">2. INSERT INTO</button>
+        <button onclick="step3()">3. UPDATE SALARY</button>
+        <button onclick="step4()">4. FILTER BY AGE</button>
+        <button onclick="step5()">5. GROUP BY DEPARTMENT</button>
+        <button onclick="step6()">6. DELETE ROWS</button>
+        <button onclick="step7()">7. DROP TABLE</button>
+    </div>
+
+    <!-- テーブル表示エリア -->
+    <div id="table-container">
+        <table>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>age</th>
+                <th>salary</th>
+                <th>department</th>
+            </tr>
+            <tr>
+                <td colspan="5">空のテーブル</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script>
+    // 初期データ
+    let tableData = [];
+
+    // ステップ1: テーブル作成
+    function step1() {
+        document.getElementById('table-container').innerHTML = `
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>age</th>
+                    <th>salary</th>
+                    <th>department</th>
+                </tr>
+                <tr>
+                    <td colspan="5">テーブルが作成されました</td>
+                </tr>
+            </table>
+        `;
+    }
+
+    // ステップ2: 行の挿入
+    function step2() {
+        tableData = [
+            { id: 1, name: 'Alice', age: 30, salary: 5000, department: 'Sales' },
+            { id: 2, name: 'Bob', age: 40, salary: 7000, department: 'HR' },
+            { id: 3, name: 'Charlie', age: 25, salary: 6000, department: 'IT' }
+        ];
+        updateTable();
+    }
+
+    // ステップ3: 給与を更新
+    function step3() {
+        tableData = tableData.map(row => {
+            if (row.department === 'HR') row.salary += 500;
+            return row;
+        });
+        updateTable();
+    }
+
+    // ステップ4: 年齢フィルター
+    function step4() {
+        const filteredData = tableData.filter(row => row.age >= 30);
+        updateTable(false, filteredData);
+    }
+
+    // ステップ5: 部署ごとのデータ表示
+    function step5() {
+        const departmentCounts = tableData.reduce((acc, row) => {
+            acc[row.department] = (acc[row.department] || 0) + 1;
+            return acc;
+        }, {});
+
+        let departmentData = Object.entries(departmentCounts).map(([department, count]) => ({
+            department,
+            count
+        }));
+
+        let headers = `<tr><th>department</th><th>count</th></tr>`;
+        let rows = departmentData
+            .map(row => `<tr><td>${row.department}</td><td>${row.count}</td></tr>`)
+            .join('');
+
+        document.getElementById('table-container').innerHTML = `
+            <table>
+                ${headers}
+                ${rows}
+            </table>
+        `;
+    }
+
+    // ステップ6: 条件付き行削除
+    function step6() {
+        tableData = tableData.filter(row => row.age >= 30);
+        updateTable();
+    }
+
+    // ステップ7: テーブル削除
+    function step7() {
+        document.getElementById('table-container').innerHTML = `
+            <p>テーブルが削除されました</p>
+        `;
+    }
+
+    // テーブルを更新する汎用関数
+    function updateTable(rename = false, data = tableData) {
+        let headers = `<tr><th>id</th><th>name</th><th>age</th><th>salary</th><th>department</th></tr>`;
+        let rows = (data || tableData)
+            .map(row => `
+                <tr>
+                    <td>${row.id}</td>
+                    <td>${row.name}</td>
+                    <td>${row.age}</td>
+                    <td>${row.salary}</td>
+                    <td>${row.department}</td>
+                </tr>
+            `)
+            .join('');
+
+        document.getElementById('table-container').innerHTML = `
+            <table>
+                ${headers}
+                ${rows}
+            </table>
+        `;
+    }
+</script>
+
+<div class="code-block">
+    <button onclick="toggleCode()" style="background-color: #333; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+        全文を表示
+    </button>
+    <pre id="full-sql-code" style="background-color: #f9f9f9; color: black; padding: 20px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 14px; margin: 20px auto; width: 80%; text-align: left; display: none;">
+-- 1. 新しいテーブルを作成
+CREATE TABLE employees (
+    id INT,
+    name VARCHAR(50),
+    age INT,
+    salary INT,
+    department VARCHAR(50)
+);
+
+-- 2. 行を挿入
+INSERT INTO employees (id, name, age, salary, department) VALUES 
+(1, 'Alice', 30, 5000, 'Sales'),
+(2, 'Bob', 40, 7000, 'HR'),
+(3, 'Charlie', 25, 6000, 'IT');
+
+-- 3. 部署「HR」の給与を500増加
+UPDATE employees SET salary = salary + 500 WHERE department = 'HR';
+
+-- 4. 年齢が30以上の行を取得
+SELECT * FROM employees WHERE age >= 30;
+
+-- 5. 部署ごとの社員数を取得
+SELECT department, COUNT(*) FROM employees GROUP BY department;
+
+-- 6. 年齢が30未満の行を削除
+DELETE FROM employees WHERE age < 30;
+
+-- 7. テーブルを削除
+DROP TABLE employees;
+    </pre>
+</div>
+
+<script>
+    function toggleCode() {
+        const codeBlock = document.getElementById('full-sql-code');
+        const button = document.querySelector('.code-block button');
+
+        if (codeBlock.style.display === 'none') {
+            codeBlock.style.display = 'block';
+            button.textContent = '全文を隠す';
+        } else {
+            codeBlock.style.display = 'none';
+            button.textContent = '全文を表示';
+        }
+    }
+</script>
+
 </body>
 </html>
