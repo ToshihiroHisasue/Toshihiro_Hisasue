@@ -186,20 +186,23 @@
 <p>以下のボタンを押して、SQLコードがテーブルにどのような影響を与えるか確認しましょう。</p>
 
 <!-- コントロールボタン -->
+<!-- ターミナル風デザイン: インタラクティブな体験 -->
+<h2 style="text-align: center; color: #0f0;">インタラクティブな体験</h2>
+<p style="text-align: center;">以下のコマンドボタンを押して、テーブルの状態を確認してください。</p>
+
 <div class="controls">
-    <button onclick="step1()">1. テーブル作成</button>
-    <button onclick="step2()">2. 行の挿入</button>
-    <button onclick="step3()">3. 列名変更</button>
-    <button onclick="step4()">4. 条件付き取得</button>
-    <button onclick="step5()">5. 並び替え</button>
-    <button onclick="step6()">6. 削除</button>
-    <button onclick="step7()">7. テーブル削除</button>
+    <button onclick="step1()">1. CREATE TABLE</button>
+    <button onclick="step2()">2. INSERT INTO</button>
+    <button onclick="step3()">3. ALTER TABLE</button>
+    <button onclick="step4()">4. SELECT WHERE</button>
+    <button onclick="step5()">5. ORDER BY</button>
+    <button onclick="step6()">6. DELETE</button>
+    <button onclick="step7()">7. DROP TABLE</button>
 </div>
 
-<!-- テーブル表示エリア -->
 <div id="table-container">
-    <h2>最初の状態</h2>
-    <table border="1">
+    <h2 style="text-align: center; color: #0f0;">最初の状態</h2>
+    <table>
         <tr>
             <th>id</th>
             <th>name</th>
@@ -211,6 +214,7 @@
         </tr>
     </table>
 </div>
+
 
 <script>
     // 初期データ
@@ -302,11 +306,6 @@
     }
 </script>
 
-
-
-
-
-    
 
 </body>
 </html>
