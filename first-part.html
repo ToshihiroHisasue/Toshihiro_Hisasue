@@ -352,16 +352,13 @@ ALTER TABLE S RENAME COLUMN name TO full_name;
 -- 4. 年齢が30以上の行を取得
 SELECT * FROM S WHERE age >= 30;
 
--- 5. 給与の合計を取得
-SELECT SUM(salary) FROM S;
-
--- 6. 給与の昇順で並び替える
+-- 5. 給与の昇順で並び替える
 SELECT * FROM S ORDER BY salary ASC;
 
--- 7. 年齢が20未満の行を削除
+-- 6. 年齢が20未満の行を削除
 DELETE FROM S WHERE age < 20;
 
--- 8. テーブルを削除
+-- 7. テーブルを削除
 DROP TABLE S;
     </pre>
 </div>
