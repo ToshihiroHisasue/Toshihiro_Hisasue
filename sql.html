@@ -181,40 +181,40 @@
             <strong>解答:</strong> DROP;
         </div>
     </div>
+<div class="interactive-block">
+  
+    
     <!-- インタラクティブな体験 -->
-<h2>インタラクティブな体験</h2>
-<p>以下のボタンを押して、SQLコードがテーブルにどのような影響を与えるか確認しましょう。</p>
+    <h2 style="text-align: center; color: #0f0;">インタラクティブな体験</h2>
+    <p style="text-align: center;">以下のコマンドボタンを押して、テーブルの状態を確認してください。</p>
 
-<!-- コントロールボタン -->
-<!-- ターミナル風デザイン: インタラクティブな体験 -->
-<h2 style="text-align: center; color: #0f0;">インタラクティブな体験</h2>
-<p style="text-align: center;">以下のコマンドボタンを押して、テーブルの状態を確認してください。</p>
+    <!-- コントロールボタン -->
+    <div class="controls">
+        <button onclick="step1()">1. CREATE TABLE</button>
+        <button onclick="step2()">2. INSERT INTO</button>
+        <button onclick="step3()">3. ALTER TABLE</button>
+        <button onclick="step4()">4. SELECT WHERE</button>
+        <button onclick="step5()">5. ORDER BY</button>
+        <button onclick="step6()">6. DELETE</button>
+        <button onclick="step7()">7. DROP TABLE</button>
+    </div>
 
-<div class="controls">
-    <button onclick="step1()">1. CREATE TABLE</button>
-    <button onclick="step2()">2. INSERT INTO</button>
-    <button onclick="step3()">3. ALTER TABLE</button>
-    <button onclick="step4()">4. SELECT WHERE</button>
-    <button onclick="step5()">5. ORDER BY</button>
-    <button onclick="step6()">6. DELETE</button>
-    <button onclick="step7()">7. DROP TABLE</button>
+    <!-- テーブル表示エリア -->
+    <div id="table-container">
+        <h2 style="text-align: center; color: #0f0;">最初の状態</h2>
+        <table>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>age</th>
+                <th>salary</th>
+            </tr>
+            <tr>
+                <td colspan="4">空のテーブル</td>
+            </tr>
+        </table>
+    </div>
 </div>
-
-<div id="table-container">
-    <h2 style="text-align: center; color: #0f0;">最初の状態</h2>
-    <table>
-        <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>age</th>
-            <th>salary</th>
-        </tr>
-        <tr>
-            <td colspan="4">空のテーブル</td>
-        </tr>
-    </table>
-</div>
-
 
 <script>
     // 初期データ
@@ -306,6 +306,64 @@
     }
 </script>
 
+<style>
+    /* インタラクティブな体験の囲い */
+    .interactive-block {
+        background-color: #111; /* ダークグレー背景 */
+        border: 2px solid #0f0; /* 緑色のボーダー */
+        padding: 20px;
+        margin: 20px auto;
+        border-radius: 8px; /* 角丸 */
+        box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2); /* 緑色の影 */
+        width: 80%; /* コンテンツ全体の幅 */
+        text-align: center; /* 全体を中央揃え */
+    }
+
+    /* コントロールボタンのスタイル */
+    .controls button {
+        background-color: #222; /* ダークグレー背景 */
+        color: #0f0; /* 緑文字 */
+        border: 2px solid #0f0; /* 緑色のボーダー */
+        padding: 10px 20px;
+        font-family: "Courier New", monospace;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 5px;
+        transition: background-color 0.3s, transform 0.3s; /* アニメーション */
+    }
+
+    .controls button:hover {
+        background-color: #0f0; /* ホバー時に緑色 */
+        color: #000; /* ホバー時に黒文字 */
+        transform: scale(1.1); /* ホバー時に拡大 */
+    }
+
+    .controls button:active {
+        background-color: #ff0; /* クリック時に黄色 */
+        color: #000;
+    }
+
+    /* テーブルのスタイル */
+    table {
+        width: 60%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background-color: #222; /* ダークグレー背景 */
+        color: #0f0; /* 緑文字 */
+        font-size: 16px;
+        border: 1px solid #444; /* 外枠の色 */
+    }
+
+    table th, table td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #444; /* セル間の線 */
+    }
+
+    table th {
+        background-color: #333; /* 見出しセルの背景色 */
+    }
+</style>
 
 </body>
 </html>
