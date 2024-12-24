@@ -364,10 +364,16 @@
     }
 </style>
 
-<!-- 静的SQLコードセクション -->
+
+
+
+    
 <div class="code-block">
-    <h2 style="text-align: center; color: #0f0;">実行された全SQLコード</h2>
-    <pre style="background-color: #222; color: #0f0; padding: 20px; border: 1px solid #444; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 14px; margin: 20px auto; width: 80%; text-align: left;">
+    <h2 style="text-align: center; color: black;">実行された全SQLコード</h2>
+    <button onclick="toggleCode()" style="background-color: #333; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+        全文を表示
+    </button>
+    <pre id="full-sql-code" style="background-color: #f9f9f9; color: black; padding: 20px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 14px; margin: 20px auto; width: 80%; text-align: left; display: none;">
 -- 1. 新しいテーブル S を作成
 CREATE TABLE S (
     id INT,
@@ -400,6 +406,23 @@ DELETE FROM S WHERE age < 20;
 DROP TABLE S;
     </pre>
 </div>
+
+    
+<script>
+    // SQLコードの表示/非表示を切り替える関数
+    function toggleCode() {
+        const codeBlock = document.getElementById('full-sql-code');
+        const button = document.querySelector('.code-block button');
+
+        if (codeBlock.style.display === 'none') {
+            codeBlock.style.display = 'block';
+            button.textContent = '全文を隠す';
+        } else {
+            codeBlock.style.display = 'none';
+            button.textContent = '全文を表示';
+        }
+    }
+</script>
 
 
 
