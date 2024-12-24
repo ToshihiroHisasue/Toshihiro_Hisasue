@@ -5,105 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toshihiro Hisasue 久末敏博</title>
     <style>
+        /* ページ全体の背景 */
+        body {
+            background-color: #f7f7f7;
+            background-image: radial-gradient(circle, #e0e0e0 1px, transparent 1px);
+            background-size: 20px 20px;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
         /* ナビゲーション全体のスタイル */
         nav {
-            background-color: #c00; /* 赤色 */
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 少し影を追加 */
-            border-bottom: 4px solid #900; /* 下に濃い赤色のライン */
+            background-color: #c00;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #900;
         }
 
         /* リンクのスタイル */
         nav a {
-            color: white; /* 白色の文字 */
-            text-decoration: none; /* 下線を削除 */
-            padding: 14px 20px; /* 内側の余白 */
-            display: inline-block;
-            font-family: Arial, sans-serif; /* フォント */
-            font-size: 16px; /* 文字サイズ */
-            font-weight: bold; /* 太字 */
-            transition: background-color 0.3s ease; /* ホバー時のエフェクト */
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
         }
 
         /* ホバー時のスタイル */
         nav a:hover {
-            background-color: #900; /* 濃い赤色に変化 */
-            text-decoration: underline; /* 下線を追加 */
-        }
-
-        /* 区切り線のスタイル */
-        nav a:not(:last-child) {
-            border-right: 1px solid #fff; /* 各リンクの間に白色の線 */
+            background-color: #900;
         }
 
         /* スマホ対応 */
         @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
             nav a {
-                display: block; /* タブを縦並びに */
-                text-align: center;
+                display: inline-block;
+                margin: 5px 0;
             }
         }
 
         /* プロフィールセクション全体 */
         .profile-section {
-            text-align: center;
-            margin: 30px auto;
-        }
-
-        .profile-section h2 {
-            font-size: 24px;
-            color: #c00; /* 赤色 */
-            margin-bottom: 20px;
-        }
-
-        /* メッセージと写真のレイアウト */
-        .profile-container {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 20px; /* 写真とメッセージの間隔 */
-            flex-wrap: wrap; /* スマホ対応で縦並びになる */
+            margin: 50px auto;
+            max-width: 800px;
+            padding: 20px;
+            gap: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* プロフィール画像 */
-        .profile-container img {
-            border-radius: 50%; /* 丸い形 */
+        .profile-section img {
+            border-radius: 50%;
             width: 150px;
             height: 150px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を追加 */
-            border: 3px solid #c00; /* 赤色の枠線 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 3px solid #c00;
         }
 
         /* プロフィールメッセージ */
         .profile-message {
             font-size: 18px;
-            color: #333; /* 落ち着いたグレー */
-            font-family: Arial, sans-serif;
-            max-width: 400px; /* メッセージの最大幅を制限 */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* プロフィール見出し */
+        .profile-message h2 {
+            font-size: 24px;
+            color: #c00;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html">ホームページ</a>
-            <a href="SQL.html">SQL</a>
-            <a href="python.html">Python</a>
-        </nav>
-    </header>
+    <!-- ナビゲーション -->
+    <nav>
+        <a href="index.html">ホームページ</a>
+        <a href="SQL.html">SQL</a>
+        <a href="python.html">Python</a>
+    </nav>
 
     <!-- プロフィールセクション -->
     <div class="profile-section">
-        <h2>管理者メッセージ</h2>
-        <div class="profile-container">
-            <!-- プロフィール画像 -->
-            <img src="picwish_8815058621_image1.jpg" alt="久末敏博の写真">
-            <!-- プロフィールメッセージ -->
-            <div class="profile-message">
-                久末敏博です。このサイトは一人の人間として大成するため、諸々の準備で利用しています。
-            </div>
+        <!-- プロフィール画像 -->
+        <img src="picwish_8815058621_image1.jpg" alt="久末敏博の写真">
+        <!-- プロフィールメッセージ -->
+        <div class="profile-message">
+            <h2>管理者メッセージ</h2>
+            久末敏博です。このサイトは一人の人間として大成するため、諸々の準備で利用しています。
         </div>
     </div>
 </body>
 </html>
+
 
