@@ -187,7 +187,7 @@
 <div class="interactive-block">
     <!-- インタラクティブな体験 -->
     <h2 style="text-align: center; color: #0f0;">インタラクティブな体験</h2>
-    <p style="text-align: center;">以下のコマンドボタンを押して、テーブルの状態を確認し、操作されたSQLコードを確認しましょう。</p>
+    <p style="text-align: center;">以下のコマンドボタンを押して、テーブルの状態を確認してください。</p>
 
     <!-- コントロールボタン -->
     <div class="controls">
@@ -216,11 +216,10 @@
         </table>
     </div>
 
-    <!-- コード表示エリア -->
+    <!-- SQLコード表示エリア -->
     <div id="code-container">
-        <h2 style="text-align: center; color: #0f0;">SQLコード</h2>
-        <pre id="sql-code" style="background-color: #111; color: #0f0; padding: 10px; border: 1px solid #0f0; border-radius: 8px;">
-            -- ここにSQLコードが表示されます
+        <pre style="text-align: left; color: #0f0; background-color: #222; padding: 10px; border: 1px solid #444; border-radius: 4px;">
+<!-- コードがここに表示されます -->
         </pre>
     </div>
 </div>
@@ -229,15 +228,15 @@
     // 初期データ
     let tableData = [];
 
+    // SQLコードを表示する関数
+    function showCode(sqlCode) {
+        document.getElementById('code-container').innerHTML = `
+            <pre style="text-align: left; color: #0f0; background-color: #222; padding: 10px; border: 1px solid #444; border-radius: 4px;">${sqlCode}</pre>
+        `;
+    }
+
     // ステップ1: テーブル作成
     function step1() {
-        const sql = `CREATE TABLE S (
-    id INT,
-    name VARCHAR(50),
-    age INT,
-    salary INT
-);`;
-        showSQLCode(sql);
         document.getElementById('table-container').innerHTML = `
             <h2>ステップ1: テーブル作成</h2>
             <table>
@@ -252,67 +251,54 @@
                 </tr>
             </table>
         `;
+        showCode(`CREATE TABLE S (\n    id INT,\n    name VARCHAR(50),\n    age INT,\n    salary INT\n);`);
     }
 
     // ステップ2: 行の挿入
     function step2() {
-        const sql = `INSERT INTO S (id, name, age, salary) VALUES 
-(1, 'Alice', 20, 5000),
-(2, 'Bob', 35, 7000),
-(3, 'Charlie', 25, 6000);`;
-        showSQLCode(sql);
         tableData = [
             { id: 1, name: 'Alice', age: 20, salary: 5000 },
             { id: 2, name: 'Bob', age: 35, salary: 7000 },
             { id: 3, name: 'Charlie', age: 25, salary: 6000 }
         ];
         updateTable('ステップ2: 行の挿入');
+        showCode(`INSERT INTO S (id, name, age, salary) VALUES (1, 'Alice', 20, 5000);\nINSERT INTO S (id, name, age, salary) VALUES (2, 'Bob', 35, 7000);\nINSERT INTO S (id, name, age, salary) VALUES (3, 'Charlie', 25, 6000);`);
     }
 
     // ステップ3: 列名変更
     function step3() {
-        const sql = `ALTER TABLE S RENAME COLUMN name TO full_name;`;
-        showSQLCode(sql);
         updateTable('ステップ3: 列名変更', true);
+        showCode(`ALTER TABLE S RENAME COLUMN name TO full_name;`);
     }
 
     // ステップ4: 条件付き取得
     function step4() {
-        const sql = `SELECT * FROM S WHERE age >= 30;`;
-        showSQLCode(sql);
         const filteredData = tableData.filter(row => row.age >= 30);
         updateTable('ステップ4: 条件付き取得', false, filteredData);
+        showCode(`SELECT * FROM S WHERE age >= 30;`);
     }
 
     // ステップ5: 並び替え
     function step5() {
-        const sql = `SELECT * FROM S ORDER BY salary ASC;`;
-        showSQLCode(sql);
         const sortedData = [...tableData].sort((a, b) => a.salary - b.salary);
         updateTable('ステップ5: 並び替え', false, sortedData);
+        showCode(`SELECT * FROM S ORDER BY salary ASC;`);
     }
 
     // ステップ6: 削除
     function step6() {
-        const sql = `DELETE FROM S WHERE age < 20;`;
-        showSQLCode(sql);
         tableData = tableData.filter(row => row.age >= 20);
         updateTable('ステップ6: 削除');
+        showCode(`DELETE FROM S WHERE age < 20;`);
     }
 
     // ステップ7: テーブル削除
     function step7() {
-        const sql = `DROP TABLE S;`;
-        showSQLCode(sql);
         document.getElementById('table-container').innerHTML = `
             <h2>ステップ7: テーブル削除</h2>
             <p>テーブルが削除されました</p>
         `;
-    }
-
-    // SQLコードを表示する関数
-    function showSQLCode(sql) {
-        document.getElementById('sql-code').textContent = sql;
+        showCode(`DROP TABLE S;`);
     }
 
     // テーブルを更新する汎用関数
@@ -341,6 +327,7 @@
         `;
     }
 </script>
+
 
 
 </body>
