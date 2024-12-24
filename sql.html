@@ -364,6 +364,42 @@
     }
 </style>
 
+<!-- 静的SQLコードセクション -->
+<div class="code-block">
+    <h2 style="text-align: center; color: #0f0;">実行された全SQLコード</h2>
+    <pre style="background-color: #222; color: #0f0; padding: 20px; border: 1px solid #444; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 14px; margin: 20px auto; width: 80%; text-align: left;">
+-- 1. 新しいテーブル S を作成
+CREATE TABLE S (
+    id INT,
+    name VARCHAR(50),
+    age INT,
+    salary INT
+);
+
+-- 2. 新しい行を挿入
+INSERT INTO S (id, name, age, salary) VALUES (1, 'Alice', 20, 5000);
+INSERT INTO S (id, name, age, salary) VALUES (2, 'Bob', 35, 7000);
+INSERT INTO S (id, name, age, salary) VALUES (3, 'Charlie', 25, 6000);
+
+-- 3. 名前列を full_name に変更
+ALTER TABLE S RENAME COLUMN name TO full_name;
+
+-- 4. 年齢が30以上の行を取得
+SELECT * FROM S WHERE age >= 30;
+
+-- 5. 給与の合計を取得
+SELECT SUM(salary) FROM S;
+
+-- 6. 給与の昇順で並び替える
+SELECT * FROM S ORDER BY salary ASC;
+
+-- 7. 年齢が20未満の行を削除
+DELETE FROM S WHERE age < 20;
+
+-- 8. テーブルを削除
+DROP TABLE S;
+    </pre>
+</div>
 
 
 
