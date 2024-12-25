@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI研究 アーカイブ</title>
+    <style>
+        /* ページ全体の背景 */
+        body {
+            background-color: #f7f7f7;
+            background-image: radial-gradient(circle, #e0e0e0 1px, transparent 1px);
+            background-size: 20px 20px;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ナビゲーション全体のスタイル */
+        nav {
+            background-color: #c00;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #900;
+        }
+
+        nav a, .dropbtn {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        nav a:hover, .dropbtn:hover {
+            background-color: #900;
+        }
+
+        /* ドロップダウンメニューのスタイル */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav a, .dropbtn {
+                margin: 5px 0;
+            }
+        }
+
+        /* 記事リスト全体 */
+        .article-list {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 各記事のスタイル */
+        .article-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .article-item:last-child {
+            border-bottom: none;
+        }
+
+        .article-item a {
+            text-decoration: none;
+            color: #c00;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .article-item a:hover {
+            color: #900;
+        }
+
+        .article-item .date {
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <!-- ナビゲーション -->
+    <nav>
+        <a href="index.html">ホーム</a>
+        <a href="medical.html">医学研究</a>
+        <a href="ai.html">AI研究</a>
+        <a href="blog.html">BLOG</a>
+        <div class="dropdown">
+            <button class="dropbtn">programming</button>
+            <div class="dropdown-content">
+                <a href="SQL.html">SQL</a>
+                <a href="python.html">Python</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 記事リスト -->
+    <div class="article-list">
+        <h1>AI研究 アーカイブ</h1>
+        <div class="article-item">
+            <a href="ai/article1.html">記事タイトル1</a>
+            <div class="date">更新日: 2024年12月21日</div>
+        </div>
+        <div class="article-item">
+            <a href="ai/article2.html">記事タイトル2</a>
+            <div class="date">更新日: 2024年12月19日</div>
+        </div>
+        <div class="article-item">
+            <a href="ai/article3.html">記事タイトル3</a>
+            <div class="date">更新日: 2024年12月17日</div>
+        </div>
+        <div class="article-item">
+            <a href="ai/article4.html">記事タイトル4</a>
+            <div class="date">更新日: 2024年12月15日</div>
+        </div>
+    </div>
+</body>
+</html>
