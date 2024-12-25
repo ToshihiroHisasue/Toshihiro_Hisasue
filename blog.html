@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VLOG</title>
+    <title>BLOG</title>
     <style>
         /* ページ全体の背景 */
         body {
@@ -25,7 +25,6 @@
             border-bottom: 4px solid #900;
         }
 
-        /* リンクのスタイル */
         nav a, .dropbtn {
             color: white;
             text-decoration: none;
@@ -73,36 +72,80 @@
             display: block;
         }
 
-        /* コンテンツのスタイル */
-        .content {
+        /* スマホ対応 */
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav a, .dropbtn {
+                margin: 5px 0;
+            }
+        }
+
+        /* 記事リスト全体 */
+        .articles {
             max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* 記事ボックス */
+        .article {
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
+            padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .content h1 {
-            color: #c00;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        .content p {
+        .article h3 {
             font-size: 18px;
-            line-height: 1.6;
-            color: #333;
+            color: #c00;
+            margin-bottom: 10px;
         }
 
-        .content iframe {
-            display: block;
+        .article p {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .article .date {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .article a {
+            text-decoration: none;
+            color: #c00;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .article a:hover {
+            color: #900;
+        }
+
+        /* 他の記事を見るリンク */
+        .view-more {
+            text-align: center;
             margin: 20px auto;
-            width: 100%;
-            max-width: 640px;
-            height: 360px;
-            border: none;
+        }
+
+        .view-more a {
+            text-decoration: none;
+            color: white;
+            background-color: #c00;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-more a:hover {
+            background-color: #900;
         }
     </style>
 </head>
@@ -122,18 +165,37 @@
         </div>
     </nav>
 
-    <!-- コンテンツセクション -->
-    <div class="content">
-        <h1>VLOG</h1>
-        <p>このページでは、私の日常生活や特別な出来事を記録したVLOGを紹介します。</p>
-        <p>以下は最近公開した動画の一部です:</p>
+    <!-- 記事リスト -->
+    <div class="articles">
+        <div class="article">
+            <h3>記事タイトル1</h3>
+            <p>この記事ではBLOGに関する最新の話題を紹介します。</p>
+            <p class="date">更新日: 2024年12月21日</p>
+            <a href="blog/article1.html">詳しく見る</a>
+        </div>
+        <div class="article">
+            <h3>記事タイトル2</h3>
+            <p>日常生活での気づきを共有します。</p>
+            <p class="date">更新日: 2024年12月19日</p>
+            <a href="blog/article2.html">詳しく見る</a>
+        </div>
+        <div class="article">
+            <h3>記事タイトル3</h3>
+            <p>自己成長について語ります。</p>
+            <p class="date">更新日: 2024年12月17日</p>
+            <a href="blog/article3.html">詳しく見る</a>
+        </div>
+        <div class="article">
+            <h3>記事タイトル4</h3>
+            <p>旅行の記録を写真とともに振り返ります。</p>
+            <p class="date">更新日: 2024年12月15日</p>
+            <a href="blog/article4.html">詳しく見る</a>
+        </div>
+    </div>
 
-        <!-- 動画の埋め込み -->
-        <iframe src="https://www.youtube.com/embed/example1" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/example2" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/example3" allowfullscreen></iframe>
-
-        <p>もっと多くの動画は、私のYouTubeチャンネルでご覧いただけます！</p>
+    <!-- 他の記事を見る -->
+    <div class="view-more">
+        <a href="blog-archive.html">他の記事を見る</a>
     </div>
 </body>
 </html>
