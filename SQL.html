@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SQL 練習問題</title>
     <style>
+        /* ページ全体の背景 */
         body {
             background-color: #f7f7f7;
             background-image: radial-gradient(circle, #e0e0e0 1px, transparent 1px);
@@ -12,25 +13,71 @@
             margin: 0;
             font-family: Arial, sans-serif;
         }
+
+        /* ナビゲーション全体のスタイル */
         nav {
             background-color: #c00;
-            overflow: hidden;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-bottom: 4px solid #900;
         }
-        nav a {
+
+        /* リンクのスタイル */
+        nav a, .dropbtn {
             color: white;
             text-decoration: none;
-            padding: 14px 20px;
-            display: inline-block;
+            padding: 10px 15px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
             font-weight: bold;
+            transition: background-color 0.3s ease;
+            border: none;
+            background: none;
+            cursor: pointer;
         }
-        nav a:hover {
+
+        nav a:hover, .dropbtn:hover {
             background-color: #900;
         }
+
+        /* ドロップダウンメニューのスタイル */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
         .controls {
             margin: 20px auto;
             text-align: center;
         }
+
         .controls button {
             background-color: #333;
             color: white;
@@ -42,23 +89,35 @@
             cursor: pointer;
             transition: 0.3s;
         }
+
         .controls button:hover {
             background-color: #555;
         }
+
         .content {
             display: none;
             margin: 20px;
         }
+
         .content.active {
             display: block;
         }
     </style>
 </head>
 <body>
+    <!-- ナビゲーション -->
     <nav>
         <a href="index.html">ホーム</a>
-        <a href="SQL.html">SQL</a>
-        <a href="python.html">Python</a>
+        <a href="medical.html">医学研究</a>
+        <a href="ai.html">AI研究</a>
+        <a href="vlog.html">VLOG</a>
+        <div class="dropdown">
+            <button class="dropbtn">programming</button>
+            <div class="dropdown-content">
+                <a href="SQL.html">SQL</a>
+                <a href="python.html">Python</a>
+            </div>
+        </div>
     </nav>
 
     <div class="controls">
