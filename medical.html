@@ -37,55 +37,69 @@
             background-color: #900;
         }
 
-        .content {
+        .articles {
             max-width: 800px;
-            margin: 50px auto;
+            margin: 30px auto;
             padding: 20px;
-            background-color: #ffffff;
+            background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .article-list {
-            list-style: none;
-            padding: 0;
-        }
-
         .article-item {
             margin-bottom: 20px;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
         }
 
-        .article-item h2 {
+        .article-item h3 {
             font-size: 20px;
             color: #333;
-            margin: 0;
+            margin-bottom: 5px;
         }
 
         .article-item p {
             font-size: 14px;
-            color: #666;
-            margin: 5px 0;
+            color: #555;
+            margin: 0 0 10px;
+        }
+
+        .article-item .date {
+            font-size: 12px;
+            color: #999;
         }
 
         .article-item a {
-            display: inline-block;
-            margin-top: 5px;
-            color: #c00;
             text-decoration: none;
+            color: #c00;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
 
         .article-item a:hover {
-            text-decoration: underline;
+            color: #900;
+        }
+
+        .see-more {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .see-more a {
+            text-decoration: none;
+            color: white;
+            background-color: #c00;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .see-more a:hover {
+            background-color: #900;
         }
     </style>
 </head>
 <body>
-    <!-- ナビゲーション -->
-    <nav>
+　　<nav>
         <a href="index.html">ホーム</a>
         <a href="medical.html">医学研究</a>
         <a href="ai.html">AI研究</a>
@@ -98,24 +112,49 @@
             </div>
         </div>
     </nav>
+    <div class="articles">
+        <h2>医学研究の記事一覧</h2>
 
-    <!-- コンテンツ -->
-    <div class="content">
-        <h1>医学研究</h1>
-        <ul class="article-list">
-            <li class="article-item">
-                <h2>記事タイトル 1</h2>
-                <p>この記事では、最新の医学研究について簡単に紹介します。</p>
-                <a href="articles/article1.html">詳しく見る</a>
-            </li>
-            <li class="article-item">
-                <h2>記事タイトル 2</h2>
-                <p>この研究では、重要な医学的発見が報告されました。</p>
-                <a href="articles/article2.html">詳しく見る</a>
-            </li>
-            <!-- ここに記事を追加 -->
-        </ul>
+        <div class="article-item">
+            <h3>記事タイトル1</h3>
+            <p>この記事では最新の医学研究について説明しています。</p>
+            <p class="date">更新日: 2024年12月22日</p>
+            <a href="medical/article1.html">詳しく見る</a>
+        </div>
+
+        <div class="article-item">
+            <h3>記事タイトル2</h3>
+            <p>この記事では医学データ分析について解説しています。</p>
+            <p class="date">更新日: 2024年12月21日</p>
+            <a href="medical/article2.html">詳しく見る</a>
+        </div>
+
+        <div class="article-item">
+            <h3>記事タイトル3</h3>
+            <p>医学研究の最新トピックに関する概要をお伝えします。</p>
+            <p class="date">更新日: 2024年12月20日</p>
+            <a href="medical/article3.html">詳しく見る</a>
+        </div>
+
+        <div class="article-item">
+            <h3>記事タイトル4</h3>
+            <p>医療技術の進化に伴う倫理的な課題を探ります。</p>
+            <p class="date">更新日: 2024年12月19日</p>
+            <a href="medical/article4.html">詳しく見る</a>
+        </div>
+
+        <div class="article-item">
+            <h3>記事タイトル5</h3>
+            <p>臨床試験の成功事例とその成果を共有します。</p>
+            <p class="date">更新日: 2024年12月18日</p>
+            <a href="medical/article5.html">詳しく見る</a>
+        </div>
+
+        <div class="see-more">
+            <a href="medical-archive.html">他の記事を見る</a>
+        </div>
     </div>
 </body>
 </html>
+
 
