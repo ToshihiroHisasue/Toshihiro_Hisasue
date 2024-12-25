@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>医学研究</title>
     <style>
+        /* ページ全体の背景 */
         body {
             background-color: #f7f7f7;
             background-image: radial-gradient(circle, #e0e0e0 1px, transparent 1px);
@@ -13,6 +14,7 @@
             font-family: Arial, sans-serif;
         }
 
+        /* ナビゲーション全体のスタイル */
         nav {
             background-color: #c00;
             display: flex;
@@ -23,7 +25,8 @@
             border-bottom: 4px solid #900;
         }
 
-        nav a {
+        /* リンクのスタイル */
+        nav a, .dropbtn {
             color: white;
             text-decoration: none;
             padding: 10px 15px;
@@ -31,60 +34,109 @@
             font-size: 16px;
             font-weight: bold;
             transition: background-color 0.3s ease;
+            border: none;
+            background: none;
+            cursor: pointer;
         }
 
-        nav a:hover {
+        nav a:hover, .dropbtn:hover {
             background-color: #900;
         }
 
+        /* ドロップダウンメニューのスタイル */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* スマホ対応 */
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav a, .dropbtn {
+                margin: 5px 0;
+            }
+        }
+
+        /* 記事リスト全体 */
         .articles {
             max-width: 800px;
             margin: 30px auto;
-            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* 記事ボックス */
+        .article {
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
+            padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .article-item {
-            margin-bottom: 20px;
+        .article h3 {
+            font-size: 18px;
+            color: #c00;
+            margin-bottom: 10px;
         }
 
-        .article-item h3 {
-            font-size: 20px;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .article-item p {
+        .article p {
             font-size: 14px;
-            color: #555;
-            margin: 0 0 10px;
+            color: #333;
+            margin-bottom: 15px;
         }
 
-        .article-item .date {
+        .article .date {
             font-size: 12px;
-            color: #999;
+            color: #666;
         }
 
-        .article-item a {
+        .article a {
             text-decoration: none;
             color: #c00;
             font-weight: bold;
             transition: color 0.3s ease;
         }
 
-        .article-item a:hover {
+        .article a:hover {
             color: #900;
         }
 
-        .see-more {
+        /* 他の記事を見るリンク */
+        .view-more {
             text-align: center;
-            margin-top: 20px;
+            margin: 20px auto;
         }
 
-        .see-more a {
+        .view-more a {
             text-decoration: none;
             color: white;
             background-color: #c00;
@@ -93,13 +145,14 @@
             transition: background-color 0.3s ease;
         }
 
-        .see-more a:hover {
+        .view-more a:hover {
             background-color: #900;
         }
     </style>
 </head>
 <body>
-　　<nav>
+    <!-- ナビゲーション -->
+    <nav>
         <a href="index.html">ホーム</a>
         <a href="medical.html">医学研究</a>
         <a href="ai.html">AI研究</a>
@@ -112,49 +165,45 @@
             </div>
         </div>
     </nav>
-    <div class="articles">
-        <h2>医学研究の記事一覧</h2>
 
-        <div class="article-item">
+    <!-- 記事リスト -->
+    <div class="articles">
+        <div class="article">
             <h3>記事タイトル1</h3>
             <p>この記事では最新の医学研究について説明しています。</p>
-            <p class="date">更新日: 2024年12月22日</p>
+            <p class="date">更新日: 2024年12月20日</p>
             <a href="medical/article1.html">詳しく見る</a>
         </div>
-
-        <div class="article-item">
+        <div class="article">
             <h3>記事タイトル2</h3>
-            <p>この記事では医学データ分析について解説しています。</p>
-            <p class="date">更新日: 2024年12月21日</p>
+            <p>医学データ分析について詳しく解説します。</p>
+            <p class="date">更新日: 2024年12月18日</p>
             <a href="medical/article2.html">詳しく見る</a>
         </div>
-
-        <div class="article-item">
+        <div class="article">
             <h3>記事タイトル3</h3>
-            <p>医学研究の最新トピックに関する概要をお伝えします。</p>
-            <p class="date">更新日: 2024年12月20日</p>
+            <p>医療技術の進歩と課題について語ります。</p>
+            <p class="date">更新日: 2024年12月16日</p>
             <a href="medical/article3.html">詳しく見る</a>
         </div>
-
-        <div class="article-item">
+        <div class="article">
             <h3>記事タイトル4</h3>
-            <p>医療技術の進化に伴う倫理的な課題を探ります。</p>
-            <p class="date">更新日: 2024年12月19日</p>
+            <p>臨床試験の成功例を紹介します。</p>
+            <p class="date">更新日: 2024年12月14日</p>
             <a href="medical/article4.html">詳しく見る</a>
         </div>
-
-        <div class="article-item">
+        <div class="article">
             <h3>記事タイトル5</h3>
-            <p>臨床試験の成功事例とその成果を共有します。</p>
-            <p class="date">更新日: 2024年12月18日</p>
+            <p>新しい治療法の研究成果を共有します。</p>
+            <p class="date">更新日: 2024年12月12日</p>
             <a href="medical/article5.html">詳しく見る</a>
         </div>
+    </div>
 
-        <div class="see-more">
-            <a href="medical-archive.html">他の記事を見る</a>
-        </div>
+    <!-- 他の記事を見る -->
+    <div class="view-more">
+        <a href="medical-archive.html">他の記事を見る</a>
     </div>
 </body>
 </html>
-
 
