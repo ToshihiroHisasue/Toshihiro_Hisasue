@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLOG</title>
+    <style>
+        /* ページ全体の背景 */
+        body {
+            background-color: #f7f7f7;
+            background-image: radial-gradient(circle, #e0e0e0 1px, transparent 1px);
+            background-size: 20px 20px;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ナビゲーション全体のスタイル */
+        nav {
+            background-color: #c00;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #900;
+        }
+
+        /* リンクのスタイル */
+        nav a, .dropbtn {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        nav a:hover, .dropbtn:hover {
+            background-color: #900;
+        }
+
+        /* ドロップダウンメニューのスタイル */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* コンテンツのスタイル */
+        .content {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h1 {
+            color: #c00;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .content iframe {
+            display: block;
+            margin: 20px auto;
+            width: 100%;
+            max-width: 640px;
+            height: 360px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- ナビゲーション -->
+    <nav>
+        <a href="index.html">ホーム</a>
+        <a href="medical.html">医学研究</a>
+        <a href="ai.html">AI研究</a>
+        <a href="blog.html">VLOG</a>
+        <div class="dropdown">
+            <button class="dropbtn">programming</button>
+            <div class="dropdown-content">
+                <a href="SQL.html">SQL</a>
+                <a href="python.html">Python</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- コンテンツセクション -->
+    <div class="content">
+        <h1>VLOG</h1>
+        <p>このページでは、私の日常生活や特別な出来事を記録したVLOGを紹介します。</p>
+        <p>以下は最近公開した動画の一部です:</p>
+
+        <!-- 動画の埋め込み -->
+        <iframe src="https://www.youtube.com/embed/example1" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/example2" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/example3" allowfullscreen></iframe>
+
+        <p>もっと多くの動画は、私のYouTubeチャンネルでご覧いただけます！</p>
+    </div>
+</body>
+</html>
