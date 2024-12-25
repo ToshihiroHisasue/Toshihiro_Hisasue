@@ -37,6 +37,12 @@
             border: none;
             background: none;
             cursor: pointer;
+            border-right: 1px solid rgba(255, 255, 255, 0.4); /* 右側の薄い区切り線 */
+        }
+
+        /* 最後のリンクは右側の線を表示しない */
+        nav a:last-of-type, .dropdown:last-of-type .dropbtn {
+            border-right: none;
         }
 
         nav a:hover, .dropbtn:hover {
@@ -81,6 +87,7 @@
             }
             nav a, .dropbtn {
                 margin: 5px 0;
+                border-right: none; /* スマホ表示では区切り線を除去 */
             }
         }
 
@@ -150,5 +157,3 @@
     </div>
 </body>
 </html>
-
-
