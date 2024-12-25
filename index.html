@@ -94,21 +94,66 @@
 <body>
     <!-- ナビゲーション -->
     <nav>
-        <a href="index.html">ホーム</a>
-        <a href="SQL.html">SQL</a>
-        <a href="python.html">Python</a>
-    </nav>
-
-    <!-- プロフィールセクション -->
-    <div class="profile-section">
-        <!-- プロフィール画像 -->
-        <img src="picwish_8815058621_image1.jpg" alt="久末敏博の写真">
-        <!-- プロフィールメッセージ -->
-        <div class="profile-message">
-            <h2>管理者メッセージ</h2>
-            久末敏博です。このサイトは一人の人間として大成するため、諸々の準備で利用しています。
+    <a href="index.html">ホーム</a>
+    <a href="medical.html">医学研究</a>
+    <a href="ai.html">AI研究</a>
+    <a href="vlog.html">VLOG</a>
+    <div class="dropdown">
+        <button class="dropbtn">programming</button>
+        <div class="dropdown-content">
+            <a href="SQL.html">SQL</a>
+            <a href="python.html">Python</a>
         </div>
     </div>
+</nav>
+
+<style>
+    /* ドロップダウンメニューのスタイル */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropbtn {
+        background-color: #c00; /* 赤色 */
+        color: white;
+        padding: 14px 20px;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color: #900; /* 濃い赤色 */
+    }
+</style>
+
 </body>
 </html>
 
