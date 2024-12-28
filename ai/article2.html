@@ -1,3 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI研究 - 記事1</title>
+    <style>
+        /* ページ全体の背景 */
+        body {
+            background-color: #f7f7f7;
+            background-image: radial-gradient(circle, #e0e0e0 1px, transparent 1px);
+            background-size: 20px 20px;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* ナビゲーション全体のスタイル */
+        nav {
+            background-color: #c00;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid #900;
+        }
+
+        nav a, .dropbtn {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        nav a:hover, .dropbtn:hover {
+            background-color: #900;
+        }
+
+        /* ドロップダウンメニューのスタイル */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav a, .dropbtn {
+                margin: 5px 0;
+            }
+        }
+
+        /* 記事セクション */
+        .article-section {
+            max-width: 800px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-section h1 {
+            font-size: 24px;
+            color: #c00;
+            margin-bottom: 20px;
+        }
+
+        .article-section p {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .article-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- ナビゲーション -->
+    <nav>
+        <a href="../index.html">ホーム</a>
+        <a href="../medical.html">医学研究</a>
+        <a href="../ai.html">AI研究</a>
+        <a href="../blog.html">BLOG</a>
+        <div class="dropdown">
+            <button class="dropbtn">programming</button>
+            <div class="dropdown-content">
+                <a href="../SQL.html">SQL</a>
+                <a href="../python.html">Python</a>
+            </div>
+        </div>
+    </nav>
+
 <!-- 記事セクション -->
 <div class="article-section">
     <h1>チャットボットから人生相談まで：AIが私たちの心のケアをどう変えるか</h1>
@@ -45,3 +178,6 @@
     </ul>
     <p>未来のAIメンタルヘルスサポートは、これらの問題を一歩ずつ解決しながら、さらに大きな形態転換を成し遂げると予想されます。</p>
 </div>
+</body>
+</html>
+
